@@ -12,7 +12,7 @@ type Config struct {
 
 func LoadConfig() *Config {
 	viper.SetConfigName("config")
-	viper.setConfigType("yaml")
+	viper.SetConfigType("yaml")
 
 	viper.AddConfigPath("./web/")
 
