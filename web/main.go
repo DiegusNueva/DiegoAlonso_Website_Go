@@ -39,7 +39,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 		`),
 	}
 
-	tmplFile := filepath.Join("web/templates/", "home.html")
+	tmplFile := filepath.Join("web/templates/", "index.html")
 	renderTemplate(w, tmplFile, data)
 }
 
