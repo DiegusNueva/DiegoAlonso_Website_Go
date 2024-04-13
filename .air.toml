@@ -4,7 +4,7 @@ root = "."
 
 [build]
   # El comando para compilar en Unix/Linux no necesita la extensión .exe
-  cmd = "go build -o ./tmp/main ./web/"
+  cmd = "go build -o ./tmp/main ./cmd/main/"
   watch = ["web", "internal", "cmd"]
 
 [run]
