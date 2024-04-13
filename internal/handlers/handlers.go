@@ -37,7 +37,7 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 		page = "index.html"
 	}
 
-	tmplFile := "web/templates" + page
+	tmplFile := "web/templates/" + page
 
 	if _, err := os.Stat(tmplFile); err != nil {
 		tmplFile = "web/templates/error.html"
