@@ -8,9 +8,10 @@ import (
 
 func main() {
 	http.HandleFunc("/", homeHandler)
-	http.HandleFunc("/about", aboutHandler)
-	http.HandleFunc("/contact", contactHandler)
+	http.HandleFunc("/products", productsHandler)
+	http.HandleFunc("/products/detail", productDetailHandler)
 
+	fmt.Println("Servidor corriendo en http://localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 
 }
@@ -18,9 +19,10 @@ func main() {
 func homeHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "Bienvenido a la página de inicio")
 }
-func aboutHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Esta es la página de 'Acerca de nosotros'")
+func productsHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "Aquí se muestran todos los productos disponibles")
 }
-func contactHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Póngase en contacto con nosotros  en diegusnueva@gmail.com")
+func productDetailHandler(w http.ResponseWriter, r *http.Request) {
+	productID := r.URL.Path[len("/products/detail/"):]
+	fmt.Fprintf(w, "Detalles del producto con ID: %s", productID)
 }
